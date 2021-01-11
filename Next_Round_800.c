@@ -2,12 +2,10 @@
 #include <stdlib.h>
 
 int main(){
-    int i, l, k, n = 0;
-    int min;
-    int tmp;
+    static int i, l, k, n, min, tmp;
 
     scanf("%d%d", &l, &k);
-    while (i < k){
+    while (i < k - 1) {
         scanf("%d", &tmp);
         if (tmp)
             n++;
@@ -16,13 +14,13 @@ int main(){
     if (i < l)
     {
         scanf("%d", &min);
-        tmp = min;
         if (min)
             n++;
+        i++;
     }
     while (i < l){
         scanf("%d", &tmp);
-        if (tmp >= min)
+        if (tmp && tmp >= min)
             n++;
         i++;
     }
