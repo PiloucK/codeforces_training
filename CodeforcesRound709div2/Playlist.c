@@ -14,17 +14,14 @@ uint32_t smallest(uint32_t a ,uint32_t b) {
     return (b);
 }
 
-uint32_t gcd(uint32_t a, uint32_t b)
+uint32_t
+gcd ( uint32_t a, uint32_t b )
 {
-    uint32_t mod;
-
-    if ((mod = biggest(a, b) % smallest(a, b)))
-    {
-        if (a == biggest(a, b))
-            return (gcd(mod, b));
-        return (gcd(a, mod));
-    }
-    return (smallest(a, b));
+  int c;
+  while ( a != 0 ) {
+     c = a; a = b%a;  b = c;
+  }
+  return b;
 }
 
 uint32_t genres[10000], deleted_songs[10000];
